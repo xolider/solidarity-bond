@@ -1,18 +1,127 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div class="Home">
+        <v-parallax src="https://www.plm.automation.siemens.com/media/global/fr/laboratory-management-consumer-packaged-goods-cpr-1280x720_tcm55-5656.jpg"
+        class="parallax_image">
+            <v-row align="center" justify="center">
+                <v-col class="text-center" cols="12">
+                    <h1 class="display-4 font-weight-thin">Solidarity Bond</h1>
+                </v-col>
+            </v-row>
+        </v-parallax>
+        <v-container>
+            <v-row justify="center" class="text-center">
+                <v-col cols="12" md="8" sm="12">
+                    <h3 class="display-1 blue--text text--darken-3">Solidarity Bond fourni du matériel de protection
+                        imprimé en 3D tel que des visières grâce à l'école d'ingénieurs CESI</h3>
+                </v-col>
+            </v-row>
+            <v-row justify="center" class="text-center">
+                <v-col cols="12" md="8" sm="12">
+                    <p class="subtitle-2">L'école d'ingénieurs CESI, qui possède 25 campus en France, a choisi de mettre
+                        à disposition ses ressources afin de participer au combat contre le COVID-19, notamment en permettant
+                        aux entreprises, associations, personnel médical etc de commander des visières imprimées en 3D.</p>
+                </v-col>
+            </v-row>
+            <v-row justify="center" class="text-center imgs">
+                <v-col cols="12" md="6" sm="12">
+                    <v-img src="https://dyw7ncnq1en5l.cloudfront.net/optim/produits/1187/22789/zortrax-m200_2fea19892cd52e76__450_400.jpg" alt="Imprimante 3D"/>
+                </v-col>
+                <v-col cols="12" md="6" sm="12">
+                    <v-img src="https://madeinmarseille.net/actualites-marseille/2020/04/visiere-protection-coronavirus.jpg" alt="Visières"/>
+                </v-col>
+            </v-row>
+            <v-divider></v-divider>
+            <v-row justify="center" class="text-center">
+                <v-col cols="12" md="8" sm="12">
+                    <h3 class="display-1 blue--text text--darken-3">Nos clients et partenaires</h3>
+                </v-col>
+            </v-row>
+            <v-row justify="center" class="text-center">
+                <v-col cols="12" md="2" sm="12">
+                    <v-list disabled>
+                        <p class="grey--text">NOS CLIENTS</p>
+                        <v-list-item-group>
+                            <v-list-item v-for="(client, i) in clients" :key="i">
+                                <v-list-item-avatar><v-img :src="client.img" alt="Google image"/></v-list-item-avatar>
+                                <v-list-item-title v-text="client.title"></v-list-item-title>
+                            </v-list-item>
+                        </v-list-item-group>
+                    </v-list>
+                </v-col>
+                <v-divider vertical></v-divider>
+                <v-col cols="12" md="2" sm="12">
+                    <v-list disabled>
+                        <p class="grey--text">NOS PARTENAIRES</p>
+                        <v-list-item-group>
+                            <v-list-item v-for="(partenaire, i) in partenaires" :key="i">
+                                <v-list-item-avatar><v-img :src="partenaire.img" alt="Google image"/></v-list-item-avatar>
+                                <v-list-item-title v-text="partenaire.title"></v-list-item-title>
+                            </v-list-item>
+                        </v-list-item-group>
+                    </v-list>
+                </v-col>
+            </v-row>
+            <v-divider></v-divider>
+            <v-row justify="center" class="text-center">
+                <v-col cols="12" md="8" sm="12">
+                    <h3 class="display-1 blue--text text--darken-3">Implantation des campus CESI</h3>
+                </v-col>
+            </v-row>
+            <v-row justify="center" class="text-center">
+                <v-col cols="12">
+                    <p>Voici une carte des implantations des campus CESI</p>
+                </v-col>
+            </v-row>
+            <v-row justify="center" class="text-center">
+                <v-col cols="12" md="3" sm="12">
+                    <v-img src="../assets/cesi.png" alt="implantation CESI"/>
+                </v-col>
+            </v-row>
+        </v-container>
+    </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
-export default {
-  name: 'Home',
-  components: {
-    HelloWorld
-  }
-}
+    export default {
+        name: "Home",
+        data() {
+            return {
+                clients: [
+                    {
+                        title: 'Client 1',
+                        img: require('../assets/google.png')
+                    },
+                    {
+                        title: 'Client 2',
+                        img: require('../assets/google.png')
+                    },
+                    {
+                        title: 'Client 3',
+                        img: require('../assets/google.png')
+                    }
+                ],
+                partenaires: [
+                    {
+                        title: 'Partenaire 1',
+                        img: require('../assets/google.png')
+                    },
+                    {
+                        title: 'Partenaire 2',
+                        img: require('../assets/google.png')
+                    },
+                    {
+                        title: 'Partenaire 3',
+                        img: require('../assets/google.png')
+                    }
+                ]
+            }
+        }
+    }
 </script>
+
+<style>
+    .parallax_image img
+    {
+        filter: blur(4px);
+    }
+</style>
