@@ -17,14 +17,9 @@
             </v-menu>
         </div>
         <div class="hidden-sm-and-down">
-            <v-btn href="#" text class="mr-2">
-                Contactez-nous pour devenir client
-            </v-btn>
-            <v-btn outlined class="mr-2" href="#">
-                Connexion client
-            </v-btn>
-            <v-btn outlined href="#">
-                Connexion CESI
+            <v-btn text @click="buttonsBar[0].click">{{this.buttonsBar[0].title}}</v-btn>
+            <v-btn v-for="(button, i) in buttonsBar.slice(1)" :key="i" outlined @click="button.click" class="ml-2">
+                {{button.title}}
             </v-btn>
         </div>
     </div>
@@ -43,7 +38,7 @@
                     },
                     {
                         title: 'Connexion client',
-                        click: ''
+                        click: () => {this.$router.push('/ClientLogin')}
                     },
                     {
                         title: 'Connexion CESI',
