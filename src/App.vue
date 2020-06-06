@@ -1,6 +1,9 @@
 <template>
   <v-app>
     <v-app-bar color="primary" app dark hide-on-scroll>
+      <v-btn icon href="/">
+        <v-icon>mdi-home</v-icon>
+      </v-btn>
       <v-toolbar-title>Solidarity Bond</v-toolbar-title>
       <v-spacer></v-spacer>
       <BarButtons/>

@@ -42,7 +42,9 @@
         },
         methods: {
             submit() {
-                console.log(this.identifier)
+                if(this.$store.dispatch('login', this.identifier)) {
+                    this.$router.push('/Dashboard')
+                }
             }
         }
     }
