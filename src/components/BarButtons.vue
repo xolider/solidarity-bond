@@ -10,7 +10,7 @@
                     </template>
                     <v-list>
                         <v-list-item-group>
-                            <v-list-item v-for="(button, i) in buttonsBar" :key="i" @click="button.click">
+                            <v-list-item v-for="(button, i) in buttonsBar" :key="i" :href="button.click">
                                 <v-list-item-title v-text="button.title"></v-list-item-title>
                             </v-list-item>
                         </v-list-item-group>
@@ -25,12 +25,34 @@
             </div>
         </div>
         <div v-else>
-            <v-btn text>
-                {{$store.getters.user}}
-            </v-btn>
-            <v-btn outlined @click="logout">
-                Déconnexion
-            </v-btn>
+            <div class="hidden-sm-and-down">
+                <v-btn text href="/#/Dashboard">
+                    {{$store.getters.user}}
+                </v-btn>
+                <v-btn outlined @click="logout">
+                    Déconnexion
+                </v-btn>
+            </div>
+            <div class="hidden-md-and-up">
+                <v-menu>
+                    <template v-slot:activator="{on}">
+                        <v-btn icon v-on="on">
+                            <v-icon>mdi-menu</v-icon>
+                        </v-btn>
+                    </template>
+                    <v-list>
+                        <v-list-item-group>
+                            <v-list-item>
+                                <v-list-item-title>{{$store.getters.user}}</v-list-item-title>
+                            </v-list-item>
+                            <v-divider></v-divider>
+                            <v-list-item>
+                                <v-list-item-title @click="logout">Déconnexion</v-list-item-title>
+                            </v-list-item>
+                        </v-list-item-group>
+                    </v-list>
+                </v-menu>
+            </div>
         </div>
     </div>
 </template>
@@ -47,11 +69,11 @@
                     },
                     {
                         title: 'Connexion client',
-                        click: '/#/ClientLogin'
+                        click: '/#/Login/Client'
                     },
                     {
                         title: 'Connexion CESI',
-                        click: ''
+                        click: '/#/Login/CESI'
                     }
                 ]
             }

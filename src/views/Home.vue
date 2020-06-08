@@ -19,7 +19,7 @@
                 <v-col cols="12" md="8" sm="12">
                     <p class="subtitle-2">L'école d'ingénieurs CESI, qui possède 25 campus en France, a choisi de mettre
                         à disposition ses ressources afin de participer au combat contre le COVID-19, notamment en permettant
-                        aux entreprises, associations, personnel médical et autres de commander des visières imprimées en 3D.</p>
+                        aux entreprises, associations, personnel médical et autres de commander du matériel imprimé en 3D.</p>
                 </v-col>
             </v-row>
             <v-row justify="center" class="text-center imgs">

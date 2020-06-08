@@ -5,14 +5,14 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    user: localStorage.getItem('user') || null
+    user: localStorage.getItem('user') || ''
   },
   mutations: {
     LOGIN: (state, user) => {
       state.user = user
     },
     LOGOUT: state => {
-      state.user = null
+      state.user = ''
     }
   },
   actions: {
