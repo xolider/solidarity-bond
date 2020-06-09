@@ -1,32 +1,8 @@
 <template>
     <div class="ClientDash">
         <v-container>
-            <v-row justify="center" class="mt-10">
-                <v-col cols="12" md="8" sm="12">
-                    <v-card class="elevation-10 dashboard_card">
-                        <v-card-title>
-                            <v-subheader class="headline">Vos commandes en cours</v-subheader>
-                        </v-card-title>
-                        <v-divider></v-divider>
-                        <v-card-text class="text-center py-12">
-                            Vous n'avez pas de commandes en cours
-                        </v-card-text>
-                    </v-card>
-                </v-col>
-            </v-row>
-            <v-row justify="center" class="mt-10">
-                <v-col cols="12" md="8" sm="12">
-                    <v-card class="elevation-10 dashboard_card">
-                        <v-card-title>
-                            <v-subheader class="headline">Vos commandes passées</v-subheader>
-                        </v-card-title>
-                        <v-divider></v-divider>
-                        <v-card-text class="text-center py-12">
-                            Vous n'avez pas encore passé de commande
-                        </v-card-text>
-                    </v-card>
-                </v-col>
-            </v-row>
+            <OrderCard title="Vos commandes en cours" orange="true" :headers="orders.headers" :items="orders.itemsBuilding"/>
+            <OrderCard title="Vos commandes passées" green="true" :headers="orders.headers.slice(0, 5)" :items="orders.itemsFinished"/>
         </v-container>
         <v-btn fab absolute bottom right dark color="primary" class="mb-10">
             <v-icon>mdi-cart</v-icon>
@@ -35,8 +11,63 @@
 </template>
 
 <script>
+    import OrderCard from "./OrderCard";
+    import ordersApi from '../api/orders'
     export default {
-        name: "ClientDash"
+        name: "ClientDash",
+        components: {OrderCard},
+        data() {
+            return {
+                orders: {
+                    headers: [{
+                        text: 'ID',
+                        align: 'start',
+                        value: 'id'
+                    }, {
+                        text: 'Produit',
+                        value: 'product'
+                    }, {
+                        text: 'Quantité',
+                        value: 'quantity'
+                    }, {
+                        text: 'Date',
+                        value: 'date'
+                    }, {
+                        text: 'Prix total (€)',
+                        value: 'total'
+                    }, {
+                        text: 'Status',
+                        value: 'status',
+                        align: 'end'
+                    }],
+                    itemsBuilding: [],
+                    itemsFinished: []
+                }
+            }
+        },
+        methods: {
+            getOrders() {
+                ordersApi.getOrder(this.$store.getters.user.id).then(resp => resp.forEach(elem => {
+                    let item = {
+                        id: elem.id,
+                        product: elem.Product.name,
+                        quantity: elem.quantity,
+                        date: elem.date.slice(0, 10),
+                        total: elem.total,
+                        status: elem.OrderStatus.name
+                    }
+                    if(elem.id_orderstatus !== 4) {
+                        this.orders.itemsBuilding.push(item)
+                    }
+                    else {
+                        this.orders.itemsFinished.push(item)
+                    }
+                }))
+            }
+        },
+        mounted() {
+            this.getOrders()
+        }
     }
 </script>
 
