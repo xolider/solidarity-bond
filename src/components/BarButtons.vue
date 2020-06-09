@@ -27,7 +27,7 @@
         <div v-else>
             <div class="hidden-sm-and-down">
                 <v-btn text href="/#/Dashboard">
-                    {{$store.getters.user}}
+                    {{$store.getters.user.name}}
                 </v-btn>
                 <v-btn outlined @click="logout">
                     Déconnexion
@@ -43,7 +43,7 @@
                     <v-list>
                         <v-list-item-group>
                             <v-list-item>
-                                <v-list-item-title>{{$store.getters.user}}</v-list-item-title>
+                                <v-list-item-title>{{$store.getters.user.name}}</v-list-item-title>
                             </v-list-item>
                             <v-divider></v-divider>
                             <v-list-item>

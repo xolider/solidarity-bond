@@ -10,19 +10,20 @@
                                 <v-form @submit.prevent="submit" id="checkLogin">
                                     <v-row>
                                         <v-col cols="12">
-                                            <v-text-field label="Identifiant" v-model="identifier" :rules="[!!identifier || 'L\'identifiant est requis.']" required></v-text-field>
+                                            <v-text-field label="Adresse mail" v-model="mail" :rules="[!!mail || 'L\'adresse mail est requise.']" required></v-text-field>
                                         </v-col>
                                     </v-row>
                                     <v-row>
                                         <v-col cols="12">
-                                            <v-text-field type="password" label="Mot de passe" v-model="password" :rules="[!!password|| 'Le mot de passe est requis']" required></v-text-field>
+                                            <v-text-field type="password" label="Mot de passe" v-model="password" :rules="[!!password || 'Le mot de passe est requis']" required></v-text-field>
                                         </v-col>
                                     </v-row>
                                 </v-form>
                             </v-container>
                         </v-card-text>
+                        <p class="ml-3 red--text">{{error}}</p>
                         <v-card-actions>
-                            <v-btn type="submit" color="success" form="checkLogin" :disabled="identifier === '' || password === ''">Connexion</v-btn>
+                            <v-btn type="submit" color="success" form="checkLogin" :disabled="mail === '' || password === ''">Connexion</v-btn>
                         </v-card-actions>
                     </v-card>
                 </v-col>
@@ -36,15 +37,22 @@
         name: "ClientLogin",
         data() {
             return {
-                identifier: '',
-                password: ''
+                mail: '',
+                password: '',
+                error: ''
             }
         },
         methods: {
             submit() {
-                if(this.$store.dispatch('login', this.identifier)) {
-                    this.$router.push('/Dashboard')
-                }
+                this.$store.dispatch('login', {mail: this.mail, password: this.password})
+                .then(resp => {
+                    if(resp.Error) {
+                        this.error = 'Adresse email ou mot de passe incorrect'
+                    }
+                    else {
+                        this.$router.push('/Dashboard')
+                    }
+                })
             }
         },
         props: ['side']
