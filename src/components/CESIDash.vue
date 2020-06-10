@@ -1,6 +1,13 @@
 <template>
     <div class="CESIDash">
         <v-container>
+            <v-row>
+                <v-col cols="12">
+                    <v-btn color="primary" rounded href="/#/Products">
+                        <v-icon class="mr-2">mdi-format-list-bulleted</v-icon> Liste des produits
+                    </v-btn>
+                </v-col>
+            </v-row>
             <OrderCard :headers="orders.headers" :items="orders.itemsPending" title="Commandes en attente" red="true" action="true"
             @startProduction="startBuilding"/>
             <OrderCard :headers="orders.headers.slice(0, 6)" :items="orders.itemsBuilding" title="Commandes en production" orange="true"/>

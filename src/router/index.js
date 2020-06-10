@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import Dashboard from "../views/Dashboard";
 import store from '../store'
 import Login from "../views/Login";
+import Products from "../views/Products";
 
 Vue.use(VueRouter)
 
@@ -25,6 +26,11 @@ Vue.use(VueRouter)
       meta: {
         requiresAuth: true
       }
+    },
+    {
+      path: '/Products',
+      name: 'Products',
+      component: Products
     },
     {
       path: '*',

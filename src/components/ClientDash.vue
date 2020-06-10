@@ -3,10 +3,14 @@
         <v-container>
             <OrderCard title="Vos commandes en cours" orange="true" :headers="orders.headers" :items="orders.itemsBuilding"/>
             <OrderCard title="Vos commandes passées" green="true" :headers="orders.headers.slice(0, 5)" :items="orders.itemsFinished"/>
+            <v-row class="mt-10">
+                <v-col cols="12">
+                    <v-btn color="primary" rounded href="/#/Products">
+                        <v-icon class="mr-2">mdi-cart</v-icon> Commander un produit
+                    </v-btn>
+                </v-col>
+            </v-row>
         </v-container>
-        <v-btn fab absolute bottom right dark color="primary" class="mb-10">
-            <v-icon>mdi-cart</v-icon>
-        </v-btn>
     </div>
 </template>
 
