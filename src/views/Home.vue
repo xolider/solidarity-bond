@@ -37,7 +37,7 @@
                 </v-col>
             </v-row>
             <v-row justify="center" class="text-center">
-                <v-col cols="12" md="2" sm="12">
+                <v-col cols="12" md="4" sm="12">
                     <v-list disabled>
                         <p class="grey--text">NOS CLIENTS</p>
                         <v-list-item-group>
@@ -49,7 +49,7 @@
                     </v-list>
                 </v-col>
                 <v-divider vertical></v-divider>
-                <v-col cols="12" md="2" sm="12">
+                <v-col cols="12" md="4" sm="12">
                     <v-list disabled>
                         <p class="grey--text">NOS PARTENAIRES</p>
                         <v-list-item-group>
@@ -88,30 +88,30 @@
             return {
                 clients: [
                     {
-                        title: 'Client 1',
-                        img: require('../assets/google.png')
+                        title: 'Corbie informatique',
+                        img: require('../assets/Info.jpg')
                     },
                     {
-                        title: 'Client 2',
-                        img: require('../assets/google.png')
+                        title: 'Café de la place',
+                        img: require('../assets/cafe.jpg')
                     },
                     {
-                        title: 'Client 3',
-                        img: require('../assets/google.png')
+                        title: 'Cabinet d\'ortophonie',
+                        img: require('../assets/Medic.jpg')
+                    },
+                    {
+                        title: 'Deheul chaussures',
+                        img: require('../assets/chaussures.png')
+                    },
+                    {
+                        title: 'Alloproelec',
+                        img: require('../assets/Elec.jpg')
                     }
                 ],
                 partenaires: [
                     {
-                        title: 'Partenaire 1',
-                        img: require('../assets/google.png')
-                    },
-                    {
-                        title: 'Partenaire 2',
-                        img: require('../assets/google.png')
-                    },
-                    {
-                        title: 'Partenaire 3',
-                        img: require('../assets/google.png')
+                        title: 'Corbie informatique',
+                        img: require('../assets/Info.jpg')
                     }
                 ]
             }
