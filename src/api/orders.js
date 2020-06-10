@@ -6,12 +6,20 @@ const getOrders = () => {
         .then(resp => resp.json())
 }
 
-const getOrder = (customer) => {
-    return window.fetch(base + '/orders/' + customer, request.get())
+const getOrder = () => {
+    return window.fetch(base + '/orders/order', request.get())
+        .then(resp => resp.json())
+}
+
+const updateOrder = (newOrder) => {
+    return window.fetch(base + '/orders/order', request.put({
+        order: newOrder
+    }))
         .then(resp => resp.json())
 }
 
 export default {
     getOrders,
-    getOrder
+    getOrder,
+    updateOrder
 }

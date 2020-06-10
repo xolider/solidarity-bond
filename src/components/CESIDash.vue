@@ -61,7 +61,8 @@
                         product: elem.Product.name,
                         quantity: elem.quantity,
                         date: elem.date.slice(0, 10),
-                        total: elem.total
+                        total: elem.total,
+                        status: elem.id_orderstatus
                     }
                     if(elem.id_orderstatus === 1) {
                         this.orders.itemsPending.push(item)
@@ -69,10 +70,22 @@
                     else if(elem.id_orderstatus === 4) {
                         this.orders.itemsFinished.push(item)
                     }
+                    else {
+                        this.orders.itemsBuilding.push(item)
+                    }
                 }))
             },
             startBuilding(item) {
-                console.log(item)
+                ordersApi.updateOrder({
+                    id: item.id,
+                    id_orderstatus: item.status+1
+                }).then(resp => {
+                    console.log(resp)
+                    this.orders.itemsPending = []
+                    this.orders.itemsBuilding = []
+                    this.orders.itemsFinished = []
+                    this.getOrders()
+                })
             }
         },
         mounted() {

@@ -11,6 +11,13 @@ const request = {
             method: 'POST',
             body: JSON.stringify(body)
         }
+    },
+    put(body, json = true) {
+        return {
+            headers: headers(json),
+            method: 'PUT',
+            body: JSON.stringify(body)
+        }
     }
 }
 

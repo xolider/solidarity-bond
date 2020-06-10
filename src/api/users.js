@@ -8,6 +8,12 @@ const postLogin = (mail, password) => {
     })).then(res => res.json())
 }
 
+const getProfile = () => {
+    return window.fetch(base + '/users/me', request.get())
+        .then(resp => resp.json())
+}
+
 export default {
-    postLogin
+    postLogin,
+    getProfile
 }

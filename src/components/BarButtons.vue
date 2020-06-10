@@ -10,7 +10,10 @@
                     </template>
                     <v-list>
                         <v-list-item-group>
-                            <v-list-item v-for="(button, i) in buttonsBar" :key="i" :href="button.click">
+                            <v-list-item href="mailto:clement.vicart@viacesi.fr">
+                                <v-list-item-title>{{buttonsBar[0].title}} <v-icon class="ml-1">mdi-open-in-new</v-icon></v-list-item-title>
+                            </v-list-item>
+                            <v-list-item v-for="(button, i) in buttonsBar.slice(1)" :key="i" :href="button.click">
                                 <v-list-item-title v-text="button.title"></v-list-item-title>
                             </v-list-item>
                         </v-list-item-group>
@@ -18,7 +21,7 @@
                 </v-menu>
             </div>
             <div class="hidden-sm-and-down">
-                <v-btn text href="mailto:clement.vicart@viacesi.fr">{{this.buttonsBar[0].title}}</v-btn>
+                <v-btn text href="mailto:clement.vicart@viacesi.fr">{{this.buttonsBar[0].title}} <v-icon class="ml-1">mdi-open-in-new</v-icon></v-btn>
                 <v-btn v-for="(button, i) in buttonsBar.slice(1)" :key="i" outlined :href="button.click" class="ml-2">
                     {{button.title}}
                 </v-btn>
@@ -42,7 +45,7 @@
                     </template>
                     <v-list>
                         <v-list-item-group>
-                            <v-list-item>
+                            <v-list-item href="/#/Dashboard">
                                 <v-list-item-title>{{$store.getters.user.name}}</v-list-item-title>
                             </v-list-item>
                             <v-divider></v-divider>
@@ -68,12 +71,8 @@
                         title: 'Contactez-nous pour devenir client'
                     },
                     {
-                        title: 'Connexion client',
-                        click: '/#/Login/Client'
-                    },
-                    {
-                        title: 'Connexion CESI',
-                        click: '/#/Login/CESI'
+                        title: 'Connexion',
+                        click: '/#/Login'
                     }
                 ]
             }

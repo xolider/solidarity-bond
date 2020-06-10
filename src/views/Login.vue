@@ -4,7 +4,7 @@
             <v-row justify="center">
                 <v-col cols="12" md="4" sm="12">
                     <v-card class="elevation-18">
-                        <v-card-title><span class="headline">Connexion {{side}}</span></v-card-title>
+                        <v-card-title><span class="headline">Connexion</span></v-card-title>
                         <v-card-text>
                             <v-container>
                                 <v-form @submit.prevent="submit" id="checkLogin">
@@ -54,7 +54,6 @@
                     }
                 })
             }
-        },
-        props: ['side']
+        }
     }
 </script>

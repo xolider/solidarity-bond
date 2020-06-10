@@ -14,10 +14,9 @@ Vue.use(VueRouter)
         component: Home
       },
     {
-      path: '/Login/:side',
+      path: '/Login',
       name: 'Login',
-      component: Login,
-      props: true
+      component: Login
     },
     {
       path: '/Dashboard',

@@ -47,7 +47,7 @@
         },
         methods: {
             getOrders() {
-                ordersApi.getOrder(this.$store.getters.user.id).then(resp => resp.forEach(elem => {
+                ordersApi.getOrder().then(resp => resp.forEach(elem => {
                     let item = {
                         id: elem.id,
                         product: elem.Product.name,
