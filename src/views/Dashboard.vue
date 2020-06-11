@@ -29,14 +29,8 @@
             checkLogin() {
                 usersApi.getProfile().then(resp => {
                     if(resp.Error) {
-                        let usertypeId = this.$store.getters.user.id_usertype
                         this.$store.dispatch('logout')
-                        if(usertypeId === 1) {
-                            this.$router.push('/Login/CESI')
-                        }
-                        else {
-                            this.$router.push('/Login/Client')
-                        }
+                        this.$router.push('/Login')
                     }
                 })
             }

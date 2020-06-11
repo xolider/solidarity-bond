@@ -37,6 +37,9 @@
                     </v-container>
                 </v-card-text>
                 <v-card-actions>
+                    <v-btn text color="primary" @click="produtEditDialog = false">
+                        Annuler
+                    </v-btn>
                     <v-btn text color="primary" @click="saveProduct">
                         Sauvegarder
                     </v-btn>

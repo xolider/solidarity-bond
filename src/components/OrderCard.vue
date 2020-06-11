@@ -17,6 +17,9 @@
                                     Commencer la production
                                 </v-btn>
                             </template>
+                            <template v-slot:no-data>
+                                <p class="my-auto">Aucune donnée disponnible</p>
+                            </template>
                         </v-data-table>
                     </v-card-text>
                 </v-card>

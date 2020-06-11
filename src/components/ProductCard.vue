@@ -18,6 +18,9 @@
                 @click="$emit('update', item)">
                     Modifier le produit
                 </v-btn>
+                <div v-else>
+                    <p class="grey--text pb-0 mb-0 unlogged-text">Connectez-vous ou contactez-nous pour commander ce produit</p>
+                </div>
             </v-card-actions>
         </v-card>
     </div>
@@ -31,5 +34,8 @@
 </script>
 
 <style scoped>
-
+    .unlogged-text
+    {
+        font-size: 14px;
+    }
 </style>

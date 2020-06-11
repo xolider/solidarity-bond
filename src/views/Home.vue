@@ -22,6 +22,13 @@
                         aux entreprises, associations, personnel médical et autres de commander du matériel imprimé en 3D.</p>
                 </v-col>
             </v-row>
+            <v-row justify="center" class="text-center my-10">
+                <v-col cols="12">
+                    <v-btn text color="primary" href="/#/Products">
+                        <v-icon class="mr-2">mdi-cart</v-icon> Découvrir nos produits
+                    </v-btn>
+                </v-col>
+            </v-row>
             <v-row justify="center" class="text-center imgs">
                 <v-col cols="12" md="6" sm="12">
                     <v-img src="https://dyw7ncnq1en5l.cloudfront.net/optim/produits/1187/22789/zortrax-m200_2fea19892cd52e76__450_400.jpg" alt="Imprimante 3D"/>
@@ -36,20 +43,21 @@
                     <h3 class="display-1 blue--text text--darken-3">Nos clients et partenaires</h3>
                 </v-col>
             </v-row>
-            <v-row justify="center" class="text-center">
-                <v-col cols="12" md="4" sm="12">
+            <v-row justify="center">
+                <v-col cols="12" md="4" sm="12" class="text-md-right">
                     <v-list disabled>
                         <p class="grey--text">NOS CLIENTS</p>
                         <v-list-item-group>
                             <v-list-item v-for="(client, i) in clients" :key="i">
+                                <v-list-item-title class="hidden-sm-and-down mr-5" v-text="client.title"></v-list-item-title>
                                 <v-list-item-avatar><v-img :src="client.img" alt="Google image"/></v-list-item-avatar>
-                                <v-list-item-title v-text="client.title"></v-list-item-title>
+                                <v-list-item-title class="hidden-md-and-up ml-5" v-text="client.title"></v-list-item-title>
                             </v-list-item>
                         </v-list-item-group>
                     </v-list>
                 </v-col>
                 <v-divider vertical></v-divider>
-                <v-col cols="12" md="4" sm="12">
+                <v-col cols="12" md="4" sm="12" class="text-md-left">
                     <v-list disabled>
                         <p class="grey--text">NOS PARTENAIRES</p>
                         <v-list-item-group>
