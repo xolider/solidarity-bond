@@ -58,12 +58,22 @@
                 </v-col>
                 <v-divider vertical></v-divider>
                 <v-col cols="12" md="4" sm="12" class="text-md-left">
-                    <v-list disabled>
+                    <v-list >
                         <p class="grey--text">NOS PARTENAIRES</p>
                         <v-list-item-group>
-                            <v-list-item v-for="(partenaire, i) in partenaires" :key="i">
+                            <v-list-item disabled color="black" v-for="(partenaire, i) in partenaires" :key="i">
                                 <v-list-item-avatar><v-img :src="partenaire.img" alt="Google image"/></v-list-item-avatar>
                                 <v-list-item-title v-text="partenaire.title"></v-list-item-title>
+                            </v-list-item>
+                            <v-list-item @click="partnerDialog = true">
+                                <v-list-item-avatar>
+                                    <v-icon>
+                                        mdi-open-in-new
+                                    </v-icon>
+                                </v-list-item-avatar>
+                                <v-list-item-title>
+                                     Devenez partenaire
+                                </v-list-item-title>
                             </v-list-item>
                         </v-list-item-group>
                     </v-list>
@@ -86,6 +96,26 @@
                 </v-col>
             </v-row>
         </v-container>
+        <v-dialog v-model="partnerDialog" max-width="600px">
+            <v-card>
+                <v-card-title>
+                    <span class="headline">
+                        Devenez partenaire
+                    </span>
+                </v-card-title>
+                <v-card-text>
+                    Vous-souhaitez devenir partenaire ?
+                    Il faut renseinger :
+                    -Le nom de l'entreprise;
+                    -
+                </v-card-text>
+                <v-card-actions>
+                    <v-btn text color="primary" href="mailto:clement.vicart@viacesi.fr">
+                        Envoyez un mail
+                    </v-btn>
+                </v-card-actions>
+            </v-card>
+        </v-dialog>
     </div>
 </template>
 
@@ -121,7 +151,8 @@
                         title: 'Corbie informatique',
                         img: require('../assets/Info.jpg')
                     }
-                ]
+                ],
+                partnerDialog: false
             }
         }
     }
