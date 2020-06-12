@@ -14,7 +14,7 @@
                                 :items="items">
                             <template v-if="action" v-slot:item.actions="{item}">
                                 <v-btn light color="primary" @click="$emit('startProduction', item)">
-                                    Commencer la production
+                                    Commencer la productionlocal
                                 </v-btn>
                             </template>
                             <template v-slot:no-data>

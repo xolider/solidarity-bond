@@ -103,11 +103,16 @@
                         Devenez partenaire
                     </span>
                 </v-card-title>
-                <v-card-text>
-                    Vous-souhaitez devenir partenaire ?
-                    Il faut renseinger :
-                    -Le nom de l'entreprise;
-                    -
+                <v-divider></v-divider>
+                <v-card-text class="mt-2">
+                    <h4>Vous-souhaitez devenir partenaire ?</h4>
+                    <br>
+                    <p>Il faut renseigner :</p>
+                    <ul>
+                        <li>Coordonnées et informations relatives au contact</li>
+                        <li>Coordonnées et informations relatives à l'entreprise/association/...</li>
+                        <li>Type de partenariat (Soutien financier, matériel, livraison...)</li>
+                    </ul>
                 </v-card-text>
                 <v-card-actions>
                     <v-btn text color="primary" href="mailto:clement.vicart@viacesi.fr">
