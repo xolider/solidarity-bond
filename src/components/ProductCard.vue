@@ -1,6 +1,6 @@
 <template>
     <div class="ProductCard">
-        <v-card class="mx-auto">
+        <v-card class="mx-auto" height="356px">
             <v-img class="white--text align-end" max-height="200px" :src="item.image">
                 <v-card-title>{{item.name}}</v-card-title>
             </v-img>

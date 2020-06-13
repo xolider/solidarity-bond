@@ -12,7 +12,7 @@
       <router-view/>
     </v-content>
     <v-footer color="primary" dark>
-      <h4>Solidarity Bond</h4>
+      <h4>Solidarity Bond &bull; {{year}}</h4>
     </v-footer>
   </v-app>
 </template>
@@ -23,5 +23,10 @@ import BarButtons from "./components/BarButtons";
 export default {
   name: 'App',
   components: {BarButtons},
+  computed: {
+    year() {
+      return new Date().toISOString().slice(0, 4)
+    }
+  }
 };
 </script>
