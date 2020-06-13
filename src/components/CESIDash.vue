@@ -10,7 +10,7 @@
             </v-row>
             <OrderCard :headers="orders.headers" :items="orders.itemsPending" title="Commandes en attente" red="true" @action="nextOrderStatus" action-button="Commencer la production"/>
             <OrderCard :headers="orders.headers" :items="orders.itemsBuilding" title="Commandes en production" orange="true" @action="nextOrderStatus" action-button="Terminer la commande"/>
-            <OrderCard :headers="orders.headers.slice(0, 6)" :items="orders.itemsFinished" title="Commandes terminées" green="true"/>
+            <OrderCard :headers="orders.headers" :items="orders.itemsFinished" title="Commandes terminées" green="true"/>
         </v-container>
     </div>
 </template>
@@ -52,9 +52,6 @@
                     itemsPending: [],
                     itemsBuilding: [],
                     itemsFinished: []
-                },
-                currentOrders: {
-
                 }
             }
         },
@@ -73,7 +70,8 @@
                     if(elem.id_orderstatus === 1) {
                         this.orders.itemsPending.push(item)
                     }
-                    else if(elem.id_orderstatus === 4) {
+                    else if(elem.id_orderstatus > 2) {
+                        item['actions'] = elem.OrderStatus.name
                         this.orders.itemsFinished.push(item)
                     }
                     else {
