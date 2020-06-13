@@ -8,8 +8,8 @@
                     </v-btn>
                 </v-col>
             </v-row>
-            <OrderCard :headers="orders.headers" :items="orders.itemsPending" title="Commandes en attente" red="true" @action="startBuilding" action-button="Commencer la production"/>
-            <OrderCard :headers="orders.headers" :items="orders.itemsBuilding" title="Commandes en production" orange="true" @action="finishOrder" action-button="Terminer la commande"/>
+            <OrderCard :headers="orders.headers" :items="orders.itemsPending" title="Commandes en attente" red="true" @action="nextOrderStatus" action-button="Commencer la production"/>
+            <OrderCard :headers="orders.headers" :items="orders.itemsBuilding" title="Commandes en production" orange="true" @action="nextOrderStatus" action-button="Terminer la commande"/>
             <OrderCard :headers="orders.headers.slice(0, 6)" :items="orders.itemsFinished" title="Commandes terminées" green="true"/>
         </v-container>
     </div>
@@ -81,7 +81,7 @@
                     }
                 }))
             },
-            startBuilding(item) {
+            nextOrderStatus(item) {
                 ordersApi.updateOrder({
                     id: item.id,
                     id_orderstatus: item.status+1
@@ -92,10 +92,8 @@
                     this.orders.itemsFinished = []
                     this.getOrders()
                 })
-            },
-            finishOrder(item) {
-
             }
+
         },
         mounted() {
             this.getOrders()
