@@ -31,7 +31,7 @@
             <v-btn text color="primary" @click="$emit('close')">
                 Annuler
             </v-btn>
-            <v-btn text color="primary" @click="$emit('save')">
+            <v-btn text color="primary" @click="$emit('save')" :disabled="saveDisabled">
                 Sauvegarder
             </v-btn>
         </v-card-actions>
@@ -41,7 +41,12 @@
 <script>
     export default {
         name: "ProductEdit",
-        props: ['productModel']
+        props: ['productModel'],
+        computed: {
+            saveDisabled() {
+                return this.productModel.name === '' || this.productModel.description === '' || this.productModel.image === ''
+            }
+        }
     }
 </script>
 

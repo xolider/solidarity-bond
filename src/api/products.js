@@ -13,7 +13,15 @@ const updateProduct = (item) => {
         .then(resp => resp.json())
 }
 
+const createProduct = (item) => {
+    return window.fetch(base + '/products', request.post({
+        product: item
+    }))
+        .then(resp => resp.json())
+}
+
 export default {
     getProducts,
-    updateProduct
+    updateProduct,
+    createProduct
 }

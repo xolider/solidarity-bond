@@ -6,6 +6,8 @@
       </v-btn>
       <v-toolbar-title>Solidarity Bond</v-toolbar-title>
       <v-spacer></v-spacer>
+      <p>{{hour}}</p>
+      <v-spacer></v-spacer>
       <BarButtons/>
     </v-app-bar>
     <v-content>
