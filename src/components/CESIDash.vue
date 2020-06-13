@@ -8,9 +8,8 @@
                     </v-btn>
                 </v-col>
             </v-row>
-            <OrderCard :headers="orders.headers" :items="orders.itemsPending" title="Commandes en attente" red="true" action="true"
-            @startProduction="startBuilding"/>
-            <OrderCard :headers="orders.headers.slice(0, 6)" :items="orders.itemsBuilding" title="Commandes en production" orange="true"/>
+            <OrderCard :headers="orders.headers" :items="orders.itemsPending" title="Commandes en attente" red="true" @action="startBuilding" action-button="Commencer la production"/>
+            <OrderCard :headers="orders.headers" :items="orders.itemsBuilding" title="Commandes en production" orange="true" @action="finishOrder" action-button="Terminer la commande"/>
             <OrderCard :headers="orders.headers.slice(0, 6)" :items="orders.itemsFinished" title="Commandes terminées" green="true"/>
         </v-container>
     </div>
@@ -93,6 +92,9 @@
                     this.orders.itemsFinished = []
                     this.getOrders()
                 })
+            },
+            finishOrder(item) {
+
             }
         },
         mounted() {

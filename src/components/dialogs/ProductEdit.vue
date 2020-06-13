@@ -9,14 +9,14 @@
                     <v-col cols="12" md="1" sm="2">
                         <v-text-field label="ID" required v-model="productModel.id" disabled></v-text-field>
                     </v-col>
-                    <v-col cols="12" md="7" sm="6">
+                    <v-col cols="12" md="6" sm="6">
                         <v-text-field label="Nom" required v-model="productModel.name"></v-text-field>
                     </v-col>
-                    <v-col cols="12" md="1" sm="2">
-                        <v-text-field label="Prix" required v-model="productModel.price"></v-text-field>
+                    <v-col cols="12" md="2" sm="2">
+                        <v-text-field label="Prix" required type="number" v-model="productModel.price"></v-text-field>
                     </v-col>
                     <v-col cols="12" md="3" sm="2">
-                        <v-text-field label="Quantité en stock" required v-model="productModel.quantity"></v-text-field>
+                        <v-text-field label="Quantité en stock" required type="number" v-model="productModel.quantity"></v-text-field>
                     </v-col>
                     <v-col cols="12">
                         <v-text-field label="Description" required v-model="productModel.description"></v-text-field>

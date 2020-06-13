@@ -12,9 +12,9 @@
                         <v-data-table
                                 :headers="headers"
                                 :items="items">
-                            <template v-if="action" v-slot:item.actions="{item}">
-                                <v-btn light color="primary" @click="$emit('startProduction', item)">
-                                    Commencer la productionlocal
+                            <template v-if="actionButton" v-slot:item.actions="{item}">
+                                <v-btn light color="primary" @click="$emit('action', item)">
+                                    {{actionButton}}
                                 </v-btn>
                             </template>
                             <template v-slot:no-data>
@@ -31,7 +31,7 @@
 <script>
     export default {
         name: "OrderCard",
-        props: ['headers', 'items', 'action', 'title', 'green', 'orange', 'red']
+        props: ['headers', 'items', 'title', 'green', 'orange', 'red', 'actionButton']
     }
 </script>
 
