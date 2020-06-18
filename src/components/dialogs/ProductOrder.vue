@@ -24,7 +24,7 @@
                     <v-icon>mdi-close</v-icon>
                 </v-btn>
                 <v-card-title>
-                    <span class="headline">Vous allez commander: {{item.name}}</span>
+                    <span class="headline">Vous allez commander: {{item.name}} &bull; Quantité</span>
                 </v-card-title>
                 <v-card-text>
                     <v-simple-table>
@@ -54,7 +54,52 @@
                     <v-btn color="primary" @click="prevSlide" outlined>
                         Précédent
                     </v-btn>
-                    <v-btn color="primary" @click="nextSlide" disabled>
+                    <v-btn color="primary" @click="nextSlide" :disabled="parseInt(total) <= 0">
+                        Suivant
+                    </v-btn>
+                </v-card-actions>
+            </v-card>
+        </v-window-item>
+        <v-window-item>
+            <v-card>
+                <v-btn class="float-right" icon @click="close">
+                    <v-icon>mdi-close</v-icon>
+                </v-btn>
+                <v-card-title>
+                    <span class="headline">Vous allez commander: {{item.name}} &bull; Livraison</span>
+                </v-card-title>
+                <v-card-text>
+                    <v-radio-group v-model="deliveryMode">
+                        <v-radio label="Remise en main propres" :value="1"></v-radio>
+                        <v-radio label="Retrait au campus d'Arras" :value="2"></v-radio>
+                    </v-radio-group>
+                </v-card-text>
+                <v-card-actions>
+                    <v-btn outlined color="primary" @click="prevSlide">
+                        Précédent
+                    </v-btn>
+                    <v-btn color="primary" @click="nextSlide">
+                        Suivant
+                    </v-btn>
+                </v-card-actions>
+            </v-card>
+        </v-window-item>
+        <v-window-item>
+            <v-card>
+                <v-btn class="float-right" icon @click="close">
+                    <v-icon>mdi-close</v-icon>
+                </v-btn>
+                <v-card-title>
+                    <span class="headline">Vous allez commander: {{item.name}} &bull; Paiement</span>
+                </v-card-title>
+                <v-card-text>
+
+                </v-card-text>
+                <v-card-actions>
+                    <v-btn outlined color="primary" @click="prevSlide">
+                        Précédent
+                    </v-btn>
+                    <v-btn color="primary" disabled>
                         Suivant
                     </v-btn>
                 </v-card-actions>
@@ -71,7 +116,8 @@
             return {
                 currentWindow: 0,
                 total: 0,
-                quantity: 0
+                quantity: 0,
+                deliveryMode: 1
             }
         },
         methods: {
