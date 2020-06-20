@@ -93,7 +93,7 @@
                     <span class="headline">Vous allez commander: {{item.name}} &bull; Paiement</span>
                 </v-card-title>
                 <v-card-text>
-
+                    
                 </v-card-text>
                 <v-card-actions>
                     <v-btn outlined color="primary" @click="prevSlide">
