@@ -93,7 +93,14 @@
                     <span class="headline">Vous allez commander: {{item.name}} &bull; Paiement</span>
                 </v-card-title>
                 <v-card-text>
-                    
+                    <PayPalCheckout
+                    :amount="total"
+                    currency="EUR"
+                    :client="paypal"
+                    :button-style="paypalStyle"
+                    env="production">
+
+                    </PayPalCheckout>
                 </v-card-text>
                 <v-card-actions>
                     <v-btn outlined color="primary" @click="prevSlide">
@@ -109,15 +116,29 @@
 </template>
 
 <script>
+    import PayPalCheckout from 'vue-paypal-checkout'
     export default {
         name: "ProductOrder",
         props: ['item'],
+        components: {
+            PayPalCheckout
+        },
         data() {
             return {
                 currentWindow: 0,
                 total: 0,
                 quantity: 0,
-                deliveryMode: 1
+                deliveryMode: 1,
+                paypal: {
+                    sandbox: 'Aah7dyiZSSsSemMXc0z_UVhCavlzHk6ew1CBW4ZlpfSh2_ZKzpxxjFaVUqd1YJHplFq7clF587ERQdea',
+                    production: 'AWjywuoZxA1RESq9mrd83czxjowx_EkxBqZnka9wR_7vBAbUtq85Km6-BdoWituznXFHl5VA1RWx148d'
+                },
+                paypalStyle: {
+                    size: 'responsive',
+                    shape: 'pill',
+                    color: 'blue',
+                    label: 'paypal'
+                }
             }
         },
         methods: {
