@@ -22,6 +22,11 @@
                         aux entreprises, associations, personnel médical et autres de commander du matériel imprimé en 3D.</p>
                 </v-col>
             </v-row>
+            <v-row class="text-center">
+                <v-col cols="12">
+                    <img src="../assets/fablab.png" alt="fablab logo" height="46" width="142"/>
+                </v-col>
+            </v-row>
             <v-row justify="center" class="text-center my-10">
                 <v-col cols="12">
                     <v-btn text color="primary" href="/#/Products">

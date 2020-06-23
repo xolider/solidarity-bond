@@ -5,13 +5,16 @@
                 <v-col cols="12" md="1" sm="12">
                     <img src="../assets/cesi_logo.png" alt="cesi logo" width="167">
                 </v-col>
-                <v-col cols="12" md="11" sm="12">
+                <v-col cols="12" md="10" sm="12">
                     <div v-if="$store.getters.user.id_usertype === 1">
                         <CESIDash/>
                     </div>
                     <div v-else>
                         <ClientDash/>
                     </div>
+                </v-col>
+                <v-col cols="12" md="1" sm="12">
+                    <img src="../assets/fablab.png" alt="fablab logo" width="142" class="">
                 </v-col>
             </v-row>
         </v-container>
