@@ -5,6 +5,7 @@ import Dashboard from "../views/Dashboard";
 import store from '../store'
 import Login from "../views/Login";
 import Products from "../views/Products";
+import CGU from "../views/CGU"
 
 Vue.use(VueRouter)
 
@@ -31,6 +32,11 @@ Vue.use(VueRouter)
       path: '/Products',
       name: 'Products',
       component: Products
+    },
+    {
+      path: '/CGU',
+      name: 'CGU',
+      component: CGU
     },
     {
       path: '*',

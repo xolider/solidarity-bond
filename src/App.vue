@@ -13,6 +13,8 @@
     </v-content>
     <v-footer color="primary" dark>
       <h4>Solidarity Bond &bull; {{year}}</h4>
+      <v-spacer></v-spacer>
+      <v-btn text to="/CGU">CGU</v-btn>
     </v-footer>
   </v-app>
 </template>
